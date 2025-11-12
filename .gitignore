@@ -156,14 +156,12 @@ cython_debug/
 *.pb
 
 # 数据文件
-*.csv
 *.tsv
 *.json
 *.jsonl
 *.parquet
 *.feather
 *.arrow
-*.txt
 !requirements.txt
 !**/README.txt
 
