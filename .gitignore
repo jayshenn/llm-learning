@@ -167,6 +167,9 @@ cython_debug/
 
 # 数据集目录
 data/
+# 例外：允许 03-data-analysis/data/ 目录
+!03-data-analysis/data/
+!03-data-analysis/data/**
 datasets/
 dataset/
 raw_data/
