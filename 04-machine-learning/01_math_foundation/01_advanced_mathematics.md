@@ -17,16 +17,17 @@
 **严格定义**
 
 设函数 $y=f(x)$，在点 $x_0$ 附近可取增量 $\Delta x$，对应函数值的增量为
-$$
-\Delta y = f(x_0+\Delta x)-f(x_0)
-$$
+
+$$\Delta y = f(x_0+\Delta x)-f(x_0)$$
 
 如果极限
+
 $$
 f'(x_0)
 =\lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x}
 =\lim_{\Delta x \to 0} \frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}
 $$
+
 存在，就称 $f$ 在 $x_0$ 处**可导**，这个极限就是 $f$ 在 $x_0$ 处的导数，记作：
 
 * $f'(x_0)$
@@ -39,14 +40,8 @@ $$
 
 设物体的位置是时间的函数 $x=x(t)$，则：
 
-* 一段时间 $\Delta t$ 内的平均速度：
-  $$
-  \bar v = \frac{\Delta x}{\Delta t}
-  $$
-* 当 $\Delta t \to 0$ 时的极限，就是**瞬时速度**：
-  $$
-  v(t) = \lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t} = \frac{dx}{dt}
-  $$
+* 一段时间 $\Delta t$ 内的平均速度： $$\bar v = \frac{\Delta x}{\Delta t}$$
+* 当 $\Delta t \to 0$ 时的极限，就是**瞬时速度**： $$v(t) = \lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t} = \frac{dx}{dt}$$
 
 > 导数用来描述“此刻变化有多快”，是优化问题、物理建模、机器学习训练（梯度下降）的核心概念。
 
@@ -81,40 +76,29 @@ $$
 
 #### 常见法则
 
-设 $f(x), g(x)$ 都可导，$c$ 为常数。
+设 $f(x), g(x)$ 都可导， $c$ 为常数。
 
 1. **和的求导**
 
-   $$
-   (f+g)' = f' + g'
-   $$
+   $$(f+g)' = f' + g'$$
 
 2. **常数倍的求导**
 
-   $$
-   (c f)' = c f'
-   $$
+   $$(c f)' = c f'$$
 
 3. **积的求导**
 
-   $$
-   (fg)' = f'g + fg'
-   $$
+   $$(fg)' = f'g + fg'$$
 
 4. **商的求导**
 
    若 $g(x)\neq 0$，则
-   $$
-   \left(\frac{f}{g}\right)'
-   =\frac{f'g - fg'}{g^2}
-   $$
+   $$\left(\frac{f}{g}\right)'=\frac{f'g - fg'}{g^2}$$
 
 5. **复合函数（链式法则）**
 
    若 $f(x) = h(g(x))$，则
-   $$
-   f'(x) = h'(g(x)) \cdot g'(x)
-   $$
+   $$f'(x) = h'(g(x)) \cdot g'(x)$$
 
 ---
 
@@ -123,56 +107,37 @@ $$
 **例子**
 
 求函数
-$$
-f(x) = \frac{x^4 + \sin x^2 - \ln x}{e^x + 7}
-$$
+$$f(x) = \frac{x^4 + \sin x^2 - \ln x}{e^x + 7}$$
 在 $x=3$ 处的导数 $f'(3)$。
 
 **步骤 1：拆成 $u(x)$ 和 $v(x)$**
 
-* 分子：$u(x) = x^4 + \sin x^2 - \ln x$
-* 分母：$v(x) = e^x + 7$
+* 分子： $u(x) = x^4 + \sin x^2 - \ln x$
+* 分母： $v(x) = e^x + 7$
 
 **步骤 2：分别求导**
 
 * $u'(x)$：
-  $$
-  (x^4)' = 4x^3,\quad
-  (\sin x^2)' = \cos x^2 \cdot 2x,\quad
-  (-\ln x)' = -\frac{1}{x}
-  $$
+  $$(x^4)' = 4x^3,\quad(\sin x^2)' = \cos x^2 \cdot 2x,\quad(-\ln x)' = -\frac{1}{x}$$
+  
   所以
-  $$
-  u'(x) = 4x^3 + 2x\cos x^2 - \frac{1}{x}
-  $$
+  
+  $$u'(x) = 4x^3 + 2x\cos x^2 - \frac{1}{x}$$
 
 * $v'(x)$：
-  $$
-  v'(x) = (e^x)' = e^x
-  $$
+  $$v'(x) = (e^x)' = e^x$$
 
 **步骤 3：用商的求导公式**
 
-$$
-f'(x)
-= \frac{u'(x)v(x) - u(x)v'(x)}{[v(x)]^2}
-$$
+$$f'(x)= \frac{u'(x)v(x) - u(x)v'(x)}{[v(x)]^2}$$
 
 代入得到：
-$$
-f'(x)
-= \frac{\Big(4x^3 + 2x\cos x^2 - \frac{1}{x}\Big)(e^x + 7)
-- (x^4 + \sin x^2 - \ln x)e^x}{(e^x + 7)^2}
-$$
+$$f'(x)= \frac{\Big(4x^3 + 2x\cos x^2 - \frac{1}{x}\Big)(e^x + 7)- (x^4 + \sin x^2 - \ln x)e^x}{(e^x + 7)^2}$$
 
 **步骤 4：求 $f'(3)$**
 
 把 $x=3$ 代入：
-$$
-f'(3)
-= \frac{\Big(4\cdot 3^3 + 2\cdot 3\cos 9 - \frac{1}{3}\Big)(e^3 + 7)
-- (3^4 + \sin 9 - \ln 3)e^3}{(e^3 + 7)^2}
-$$
+$$f'(3) = \frac{\Big(4\cdot 3^3 + 2\cdot 3\cos 9 - \frac{1}{3}\Big)(e^3 + 7)- (3^4 + \sin 9 - \ln 3)e^3}{(e^3 + 7)^2}$$
 
 不需要展开成具体数值，保留成上面这种“代入表达式”即可。
 
@@ -188,7 +153,7 @@ $$
 
 **几个关键词**
 
-* **驻点**：导数为 0 的点，$f'(x_0)=0$。
+* **驻点**：导数为 0 的点， $f'(x_0)=0$。
 * 驻点是“极值可疑点”：可能是极大值、极小值，也可能啥都不是。
 
 **基本思路**
@@ -202,7 +167,7 @@ $$
 * 若在 $x_0$ 左侧 $f'(x)<0$、右侧 $f'(x)>0$，函数先降后升 → **极小值点**。
 * 若符号不变（都为正或都为负），则不是极值点。
 
-**反例：$f(x)=x^3$**
+**反例： $f(x)=x^3$**
 
 $$
 f(x) = x^3,\quad f'(x) = 3x^2
@@ -224,21 +189,15 @@ $$
 一阶导数描述“函数值变化有多快”，二阶导数则描述“**变化率本身变化得有多快**”。
 
 * 一元函数 $y=f(x)$ 的二阶导数定义为：
-  $$
-  f''(x) = \frac{d}{dx}\left(f'(x)\right)
-  $$
+  $$f''(x) = \frac{d}{dx}\left(f'(x)\right)$$
 * 常见记号：
-  $$
-  f''(x),\quad \frac{d^2 y}{dx^2}
-  $$
+  $$f''(x),\quad \frac{d^2 y}{dx^2}$$
 
 **物理类比**
 
 * 位置 $x(t)$ 对时间的导数：速度 $v(t)=\dfrac{dx}{dt}$
 * 速度对时间的导数：加速度
-  $$
-  a(t) = \frac{dv}{dt} = \frac{d^2 x}{dt^2}
-  $$
+  $$a(t) = \frac{dv}{dt} = \frac{d^2 x}{dt^2}$$
 
 #### 2）二阶导数与凹凸
 
@@ -253,7 +212,7 @@ $$
 
 ![img_6.png](public/img6.png)
 
-* 若在某点 $x_0$ 附近，$f''(x)$ 左右两侧异号（比如左边 $>0$、右边 $<0$），说明图像弯曲方向发生改变，这个点称为**拐点**。
+* 若在某点 $x_0$ 附近， $f''(x)$ 左右两侧异号（比如左边 $>0$、右边 $<0$），说明图像弯曲方向发生改变，这个点称为**拐点**。
 * 如果 $f''$ 连续，拐点处通常有 $f''(x_0)=0$，但 **$f''(x_0)=0$ 不一定是拐点**。
 
 **例子**
@@ -262,8 +221,8 @@ $$
 f(x) = x^4
 $$
 
-* 一阶导：$f'(x) = 4x^3$
-* 二阶导：$f''(x) = 12x^2$
+* 一阶导： $f'(x) = 4x^3$
+* 二阶导： $f''(x) = 12x^2$
 
 在 $x=0$ 有 $f''(0)=0$，但 $f''(x)=12x^2\ge 0$ 在全实数范围内都不变号，图像始终向上弯，因此 **没有拐点**。
 
@@ -297,20 +256,12 @@ $$
 **例子**
 
 设
-$$
-f(x,y) = x^2 + xy + y^2
-$$
+$$f(x,y) = x^2 + xy + y^2$$
 
 * 把 $y$ 当常数，只对 $x$ 求导：
-  $$
-  \frac{\partial f}{\partial x}(x,y)
-  = 2x + y
-  $$
+  $$\frac{\partial f}{\partial x}(x,y)= 2x + y$$
 * 把 $x$ 当常数，只对 $y$ 求导：
-  $$
-  \frac{\partial f}{\partial y}(x,y)
-  = x + 2y
-  $$
+  $$\frac{\partial f}{\partial y}(x,y)= x + 2y$$
 
 在点 $(1,1)$：
 
@@ -320,23 +271,10 @@ $$
 **一般定义**
 
 多元函数
-$$
-f(x_1,x_2,\dots,x_n)
-$$
+$$f(x_1,x_2,\dots,x_n)$$
 在点 $(a_1,\dots,a_n)$ 处，对第 $i$ 个变量 $x_i$ 的偏导数定义为：
-$$
-\frac{\partial f}{\partial x_i}(a_1,\dots,a_n)
-==============================================
 
-\lim_{\Delta x_i \to 0}
-\frac{
-f(a_1,\dots,a_i+\Delta x_i,\dots,a_n)
-
-* f(a_1,\dots,a_i,\dots,a_n)
-  }{
-  \Delta x_i
-  }
-  $$
+$$\frac{\partial f}{\partial x_i}(a_1,\dots,a_n)= \lim_{\Delta x_i \to 0}\frac{f(a_1,\dots,a_i+\Delta x_i,\dots,a_n)- f(a_1,\dots,a_i,\dots,a_n)}{\Delta x_i}$$
 
 大意：其他变量都“冻结”，只动一个，看函数在这个方向上的变化率。
 
@@ -353,10 +291,12 @@ f(a_1,\dots,a_i+\Delta x_i,\dots,a_n)
 考虑二元函数 $f(x,y)$，在点 $(x_0,y_0)$ 处，选取一个方向 $l$（例如一条线的方向）。
 
 令该方向上的单位向量为
+
 $$
 \mathbf{l}_0 = (\cos\alpha,\ \cos\beta)
 $$
-这里的 $\cos\alpha,\cos\beta$ 是方向余弦（反映方向在 $x$ 轴、$y$ 轴上的分量）。
+
+这里的 $\cos\alpha,\cos\beta$ 是方向余弦（反映方向在 $x$ 轴、 $y$ 轴上的分量）。
 
 ![img_8.png](public/img8.png)
 
@@ -366,41 +306,39 @@ $$
 * $\Delta y = \Delta l \cdot \cos \beta$
 
 方向导数定义为：
+
 $$
 \frac{\partial f}{\partial l}(x_0,y_0)
-======================================
-
-\lim_{\Delta l \to 0}
+=\lim_{\Delta l \to 0}
 \frac{f(x_0+\Delta x,\ y_0+\Delta y) - f(x_0,y_0)}{\Delta l}
 $$
 
 利用全微分，可以写成偏导数的形式：
+
 $$
 \frac{\partial f}{\partial l}(x_0,y_0)
-======================================
-
-f_x(x_0,y_0)\cos \alpha
+=f_x(x_0,y_0)\cos \alpha
 +
 f_y(x_0,y_0)\cos \beta
 $$
+
 其中：
 
-* $f_x$、$f_y$ 分别是对 $x$、$y$ 的偏导数；
+* $f_x$、 $f_y$ 分别是对 $x$、 $y$ 的偏导数；
 * $(\cos\alpha,\cos\beta)$ 是方向的单位向量。
 
 **向量形式（更常用）**
 
 写成向量点积会更直观：
 
-* 梯度：$\nabla f(x_0,y_0)$（见下一小节）
-* 单位方向向量：$\mathbf{l}_0$
+* 梯度： $\nabla f(x_0,y_0)$（见下一小节）
+* 单位方向向量： $\mathbf{l}_0$
 
 则方向导数可以写成：
+
 $$
 \frac{\partial f}{\partial l}(x_0,y_0)
-======================================
-
-\nabla f(x_0,y_0)\cdot \mathbf{l}_0
+=\nabla f(x_0,y_0)\cdot \mathbf{l}_0
 $$
 
 > 方向导数回答的是：沿着我指定的这个方向走一步，函数值会上升（或下降）多快。
@@ -412,9 +350,11 @@ $$
 **定义**
 
 多元函数
+
 $$
 f(x_1,\dots,x_n)
 $$
+
 在点 $\mathbf{a} = (a_1,\dots,a_n)$ 的梯度定义为“所有偏导数组成的向量”：
 
 $$
@@ -432,6 +372,7 @@ $$
 **例子**
 
 还是函数：
+
 $$
 f(x,y) = x^2 + xy + y^2
 $$
@@ -442,11 +383,13 @@ $$
 * $\dfrac{\partial f}{\partial y}(x,y) = x + 2y$
 
 所以梯度是：
+
 $$
 \nabla f(x,y) = (2x + y,\ x + 2y)
 $$
 
 在点 $(1,1)$：
+
 $$
 \nabla f(1,1) = (3,\ 3)
 $$
@@ -465,7 +408,7 @@ $$
 
 简单总结：
 
-* 方向导数：$\dfrac{\partial f}{\partial l}(\mathbf{a}) = \nabla f(\mathbf{a})\cdot \mathbf{l}_0$
+* 方向导数： $\dfrac{\partial f}{\partial l}(\mathbf{a}) = \nabla f(\mathbf{a})\cdot \mathbf{l}_0$
 * 沿梯度方向，函数涨得最快；沿负梯度方向，函数降得最快。
 
 > 梯度是“函数上升最快的方向”，在机器学习里，**梯度下降法**就是沿着“负梯度方向”走，去找损失函数的最小值。
